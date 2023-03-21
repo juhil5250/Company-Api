@@ -2,11 +2,12 @@
 using CompanyApi_BAL.Services.IServices;
 using EmployeeApi.Model;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeApi.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [Route("[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
