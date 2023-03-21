@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using CompanyApi.DTO;
-using CompanyApi.Interface;
-using CompanyApi_BAL.Services;
+﻿using CompanyApi.DTO;
 using CompanyApi_BAL.Services.IServices;
 using EmployeeApi.Model;
 using Microsoft.AspNet.OData;
@@ -32,7 +29,7 @@ namespace EmployeeApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
-            return Ok(await _employeeServices.GetEmployeeById(id));    
+            return Ok(await _employeeServices.GetEmployeeById(id));
         }
 
         [HttpPost]

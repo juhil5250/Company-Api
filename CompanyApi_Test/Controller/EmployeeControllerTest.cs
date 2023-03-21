@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
-using CompanyApi.Interface;
+using CompanyApi.DTO;
+using CompanyApi_BAL.Services.IServices;
 using CompanyApi_Test.Mockdata;
 using EmployeeApi.Controllers;
-using EmployeeApi.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Microsoft.AspNetCore.Mvc;
-using CompanyApi_BAL.Services.IServices;
-using FluentAssertions;
-using CompanyApi.AutomapperProfile;
 
 namespace CompanyApi_Test.Controller
 {
@@ -32,7 +29,8 @@ namespace CompanyApi_Test.Controller
         {
             //Arrange
             var employee = EmployeeMockData.GetEmployee();
-            _employeeServices.Setup(_ => _.GetEmployee()).Returns(employee);
+            var result = _mapper.Map<List<EmployeeDto>>(employee);
+            _employeeServices.Setup(_ => _.GetEmployee()).Returns();
             var controller = new EmployeeController((CompanyApi_BAL.Services.EmployeeServices)_employeeServices.Object);
 
             //Act
