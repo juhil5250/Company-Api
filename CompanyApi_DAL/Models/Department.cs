@@ -11,7 +11,7 @@ namespace EmployeeApi.Model
             Employees = new HashSet<Employee>();
         }
         [Key]
-        public int DeptId { get; set; }
+        public int DeptId { get; set; } 
         public string Name { get; set; }
 
 

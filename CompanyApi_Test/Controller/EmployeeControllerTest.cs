@@ -29,8 +29,7 @@ namespace CompanyApi_Test.Controller
         {
             //Arrange
             var employee = EmployeeMockData.GetEmployee();
-            var result = _mapper.Map<List<EmployeeDto>>(employee);
-            _employeeServices.Setup(_ => _.GetEmployee()).Returns();
+            _employeeServices.Setup(_ => _.GetEmployee()).Returns(employee);
             var controller = new EmployeeController((CompanyApi_BAL.Services.EmployeeServices)_employeeServices.Object);
 
             //Act

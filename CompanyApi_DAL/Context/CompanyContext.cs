@@ -46,10 +46,5 @@ namespace CompanyApi.Context
                 .OnDelete(DeleteBehavior.Restrict);
 
         }
-
-        internal Task FindByNameAsync(string userName)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
