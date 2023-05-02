@@ -2,6 +2,7 @@
 using CompanyApi.Context;
 using CompanyApi.DTO;
 using CompanyApi.Interface;
+using CompanyApi_DAL.Models;
 using EmployeeApi.Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,16 +17,33 @@ namespace CompanyApi.Repositery
             _context = Context;
         }
 
-        public async Task<List<Employee>> GetEmployees()
+        
+        public async Task<EmployeeResponse> GetEmployees(int page, float pageResult)
         {
-            if(_context == null)
+            if(_context.Employee == null)
             {
-                return null;
+                throw new Exception("Employee Not found");
             }
 
-            var result = await _context.Employee.Include(e => e.Department).Include(e => e.EmployeeAddress).Include(e => e.employeeprojects).ToListAsync();
+            
+            var pageCount = Math.Ceiling(_context.Employee.Count() / pageResult);
 
-            return result;
+            var result = await _context.Employee
+                        .Include(e => e.Department)
+                        .Include(e => e.EmployeeAddress)
+                        .Include(e => e.employeeprojects)
+                        .Skip((page - 1) * (int)pageResult)
+                        .Take((int)pageResult)
+                        .ToListAsync();
+
+            var employeeResponse = new EmployeeResponse()
+            {
+                employees = result,
+                Pages = (int)pageCount,
+                CurrentPage = page
+            };
+
+            return employeeResponse;
         }
 
         public async Task<Employee> GetEmployeeById(int id)
@@ -37,9 +55,11 @@ namespace CompanyApi.Repositery
 
             var result = await _context.Employee.Where(e => e.EmpId == id).Include(d => d.Department).Include(e => e.EmployeeAddress).Include(e => e.employeeprojects).FirstOrDefaultAsync();
 
+            ArgumentNullException.ThrowIfNull(result, "User Not Found");
+
             return result;
         }
-
+        
         public async Task<Employee> AddEmployee(Employee employee)
         {
             _context.Employee.Add(employee);
@@ -77,5 +97,7 @@ namespace CompanyApi.Repositery
         {
             await _context.SaveChangesAsync();
         }
+
+        
     }
 }

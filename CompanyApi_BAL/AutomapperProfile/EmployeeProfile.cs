@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using CompanyApi.DTO;
+using CompanyApi_DAL.DTO;
+using CompanyApi_DAL.Models;
 using EmployeeApi.Model;
 
 namespace CompanyApi.AutomapperProfile
@@ -10,6 +12,7 @@ namespace CompanyApi.AutomapperProfile
         {
             CreateMap<Employee, EmployeeDto>().ReverseMap();
             CreateMap<UpdateEmployeeDTO, Employee>().ReverseMap();
+            CreateMap<EmployeeResponse, EmployeeResponseDto>().ReverseMap();
         }
     }
 }

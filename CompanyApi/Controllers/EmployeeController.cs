@@ -21,9 +21,9 @@ namespace EmployeeApi.Controllers
 
         [EnableQuery(PageSize = 10)]
         [HttpGet]
-        public async Task<ActionResult<List<EmployeeDto>>> GetEmployee()
+        public async Task<ActionResult<List<EmployeeDto>>> GetEmployee(int page, float pageResult)
         {
-            return Ok(await _employeeServices.GetEmployee());
+            return Ok(await _employeeServices.GetEmployee(page, pageResult));
         }
 
         [EnableQuery]

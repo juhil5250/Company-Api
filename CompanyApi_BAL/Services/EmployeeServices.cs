@@ -2,6 +2,7 @@
 using CompanyApi.DTO;
 using CompanyApi.Interface;
 using CompanyApi_BAL.Services.IServices;
+using CompanyApi_DAL.DTO;
 using EmployeeApi.Model;
 using Microsoft.Extensions.Logging;
 using System.Data;
@@ -21,9 +22,9 @@ namespace CompanyApi_BAL.Services
             _logger = logger;
         }
 
-        public async Task<List<EmployeeDto>> GetEmployee()
+        public async Task<EmployeeResponseDto> GetEmployee(int page, float pageResult)
         {
-            var employee = await _employeeRepositery.GetEmployees();
+            var employee = await _employeeRepositery.GetEmployees(page, pageResult);
 
             if (employee == null)
             {
@@ -31,7 +32,7 @@ namespace CompanyApi_BAL.Services
                 return null;
             }
 
-            var result = _mapper.Map<List<EmployeeDto>>(employee);
+            var result = _mapper.Map<EmployeeResponseDto>(employee);
 
             _logger.LogInformation("information Get Successfully");
             return result;

@@ -1,21 +1,15 @@
-﻿using EmployeeApi.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CompanyApi.DTO;
 
 namespace CompanyApi_Test.Mockdata
 {
     public class EmployeeMockData
     {
-        public static List<Employee> GetEmployee()
+        public static async Task<List<EmployeeDto>> GetEmployee()
         {
-            return new List<Employee>()
+            return new List<EmployeeDto>()
             {
-                new Employee()
+                new EmployeeDto()
                 {
-                    EmpId = 1,
                     Name = "juhil",
                     Email = "juhil@gmail.com",
                     Age = 20,
@@ -24,9 +18,8 @@ namespace CompanyApi_Test.Mockdata
                     DeptId = 1,
                     TeamId = 1,
                 },
-                new Employee()
+                new EmployeeDto()
                 {
-                    EmpId = 2,
                     Name = "akhil",
                     Email = "akhil@gmail.com",
                     Age = 22,
@@ -35,9 +28,8 @@ namespace CompanyApi_Test.Mockdata
                     DeptId = 2,
                     TeamId = 2,
                 },
-                new Employee()
+                new EmployeeDto()
                 {
-                    EmpId = 3,
                     Name = "Darshan",
                     Email = "darshan@gmail.com",
                     Age = 23,

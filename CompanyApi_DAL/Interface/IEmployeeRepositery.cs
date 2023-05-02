@@ -1,11 +1,12 @@
 ﻿using CompanyApi.DTO;
+using CompanyApi_DAL.Models;
 using EmployeeApi.Model;
 
 namespace CompanyApi.Interface
 {
     public interface IEmployeeRepositery
     {
-        Task<List<Employee>> GetEmployees();
+        Task<EmployeeResponse> GetEmployees(int page, float pageResult);
         Task<Employee> GetEmployeeById(int id);
         Task<Employee> AddEmployee(Employee employee);
         Task<Employee> UpdateEmployee(Employee employee);

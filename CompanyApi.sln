@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyApi", "CompanyApi\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyApi_Test", "CompanyApi_Test\CompanyApi_Test.csproj", "{73D8B23F-D403-44D6-B1DD-E740322D075E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyApi_BAL", "CompanyApi_BAL\CompanyApi_BAL.csproj", "{CA38466B-B5FE-47E2-8FD7-637EA7E48211}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyApi_BAL", "CompanyApi_BAL\CompanyApi_BAL.csproj", "{CA38466B-B5FE-47E2-8FD7-637EA7E48211}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyApi_DAL", "CompanyApi_DAL\CompanyApi_DAL.csproj", "{43FDFF94-4595-40FF-8882-9377879F4725}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyApi_DAL", "CompanyApi_DAL\CompanyApi_DAL.csproj", "{43FDFF94-4595-40FF-8882-9377879F4725}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyApi-Bal", "CompanyApi-Bal\CompanyApi-Bal.csproj", "{D8189959-B371-45D6-86E6-0D5B7A1467C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{43FDFF94-4595-40FF-8882-9377879F4725}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43FDFF94-4595-40FF-8882-9377879F4725}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43FDFF94-4595-40FF-8882-9377879F4725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8189959-B371-45D6-86E6-0D5B7A1467C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8189959-B371-45D6-86E6-0D5B7A1467C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8189959-B371-45D6-86E6-0D5B7A1467C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8189959-B371-45D6-86E6-0D5B7A1467C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
